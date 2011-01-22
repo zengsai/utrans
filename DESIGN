@@ -1,9 +1,13 @@
-app
------------
-framework
------------
-provider
------------
+架构图：
+
+***************
+*   app       *
+*-------------*
+*   framework *
+*-------------*
+*   provider  *
+***************
+
 
 framework structs:
     provider: represent a  provider.
@@ -29,16 +33,25 @@ framework apis:
     int set_provider(char *provider_name, int model);
     /*==========================================
       在字典中查询 query_string，将查询结果保存在 result 中。
+      direction 表示查询方向：
+             +1 表示 中 --> 英
+              0 表示自动判断。
+             -1 表示 英 --> 中
       返回值：
              0 查询成功。
             -1 查询失败。
      *========================================== */
-    int query_dict(char *query_string, dict_result *result);
+    int query_dict(int direction, char *query_string, dict_result *result);
+
     /*==========================================
       翻译 orgi，将结果保存在 trans 中。
+      direction 表示查询方向：
+             +1 表示 中 --> 英
+              0 表示自动判断。
+             -1 表示 英 --> 中
       返回值：
              0 查询成功。
             -1 查询失败。
      *========================================== */
-    int translate(char *orgi, char *trans);
+    int translate(int direction, char *orgi, char *trans);
     
