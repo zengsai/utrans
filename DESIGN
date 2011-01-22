@@ -1,0 +1,44 @@
+app
+-----------
+framework
+-----------
+provider
+-----------
+
+framework structs:
+    provider: represent a  provider.
+    dict_result: represent a result of dictinary query.
+
+framework apis:
+    /*==========================================
+     * 根据 provider 名字设置当前要使用的 provider。
+     * 参数：
+            privider_name  想使用的 provider 的名字。
+            model          想让 provider 工作在 model 模式下。
+                           model 模式有三种：
+                               LOCAL_ONLY 只从本地库获取结果。
+                               NET_ONLY   只从网络获取结果。
+                               ANY        只要能获取结果，用哪一种方式都可以。推荐实现时先用本地库，提高查询速度。
+     * 返回值：
+     *       0  设置成功。
+     *      -1  设置失败：找不到 provider，即没有这个插件。
+     *      -2  设置失败：加载 provider 失败，找到了这个插件，但这个插件实现不正确。
+     *      -3  设置失败：provider 不支持 type 表示的查询方式。
+     *      -4  设置失败：其它错误。
+     *========================================== */
+    int set_provider(char *provider_name, int model);
+    /*==========================================
+      在字典中查询 query_string，将查询结果保存在 result 中。
+      返回值：
+             0 查询成功。
+            -1 查询失败。
+     *========================================== */
+    int query_dict(char *query_string, dict_result *result);
+    /*==========================================
+      翻译 orgi，将结果保存在 trans 中。
+      返回值：
+             0 查询成功。
+            -1 查询失败。
+     *========================================== */
+    int translate(char *orgi, char *trans);
+    
