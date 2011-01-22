@@ -1,6 +1,49 @@
 utran - ubuntu translator
 =========================
-a easy use translator work in terminal.
+a simple and easy use translate tool working in linux terminal.
+
+说明：该软件是 UbuntuTranslator 的 C 语言版，但提供了更强大的功能，如本地词库，插件支持等。设计思想及和开发动机可以参考 http://www.oschina.net/p/ubuntutranslator
+
+目的：旨在开发一个在 Linux 下小巧易用的命令行翻译工具。
+功能：首先支持中英互译，以插件的形式扩展翻译内容提供商（比如 词海 插件、Google 的插件、星际译王 插件等）。
+架构：该工具分为三个部分，已达到松散耦合的目的。详细请看 DESIGN。
+
+优点：
+    1、以插件的形式动态扩展翻译内容提供商。接口简单，易于实现。
+    2、支持本地查询、网络查询和智能查询三种模式。
+    3、智能缓存查询结果，提高查询效率。
+    4、工作在命令行，适合命令行爱好者。同时也很方便阅读，这个会在以后提到。
+
+希望有兴趣的工程师一起共同开发。
 
 
+********************
+* Usage 1 单词查询 *
+********************
+
+$ utran "hello"
+
+单词：hello   发音：[he'ləu, hə-]
+=======================================
+
+解释：
+ int. 喂；哈罗
+ n. 表示问候， 惊奇或唤起注意时的用语
+
+例句：
+ 1. Hello , what can I do for you ? 
+    你好，我能为你做些什么吗？
+
+ 2. Hello , Susan , this is reception . 
+    你好！苏珊，我是接待员。
+
+
+****************
+* Usage 2 翻译 *
+****************
+
+$ utran "a simple and easy use translate tool working in terminal."
+
+原文：a simple and easy use translate tool working in linux terminal.
+译文：一个简单的且易于使用的翻译工具工作在linux终端。
 
